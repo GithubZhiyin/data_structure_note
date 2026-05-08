@@ -28,3 +28,30 @@ int dyna_array{
 }
 
 
+
+// 动态数组基础
+int main(){
+    // 动态二维数组
+    int rows = 3, cols = 4;
+    int** dynamicMatrix = new int*[rows];
+    for (int i = 0; i < rows; i++) {
+        dynamicMatrix[i] = new int[cols];
+    }
+    
+    // 使用动态数组
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            dynamicMatrix[i][j] = i * cols + j;
+        }
+    }
+    
+    // 释放动态二维数组
+    for (int i = 0; i < rows; i++) {
+        delete[] dynamicMatrix[i];
+    }
+    delete[] dynamicMatrix;
+    
+    return 0;
+}
+
+
